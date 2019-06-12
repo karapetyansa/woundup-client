@@ -1,0 +1,47 @@
+
+  import React from 'react'
+  import { Route, Switch } from 'react-router-dom'
+  
+  import { Page, Flex, Tabs, Tab, NavLink } from 'ui'
+  import { ListPeople } from './ListPeople'
+  import { CreatePersonForm, UpdatePersonForm } from './PersonForm'
+  import { ListAccounts } from 'tables/accounts/ListAccounts'
+  import { ListEventMembers } from 'tables/event_members/ListEventMembers'
+  import { ListPersonInGroups } from 'tables/person_in_groups/ListPersonInGroups'
+  
+  const RefTabs = ({ match }) => (
+    <Tabs
+      is={Flex}
+      my={2}
+      borderColor="darken1"
+      flexDirection={['column', 'row']}
+    >
+      <Tab is={NavLink} exact to={`${match.url}`}>
+        Main
+      </Tab>
+      <Tab is={NavLink} to={`${match.url}/accounts`}>
+        Accounts
+      </Tab> 
+      <Tab is={NavLink} to={`${match.url}/event_members`}>
+        Event Members
+      </Tab> 
+      <Tab is={NavLink} to={`${match.url}/person_in_groups`}>
+        Person In Groups
+      </Tab> 
+    </Tabs>
+  )
+  
+  export const PagePeople = ({ match }) => (
+    <Page>
+      <Route exact path="/people" component={ListPeople} />
+      <Route path={`${match.path}/:person`} component={RefTabs} />
+      <Switch>
+        <Route exact path={`${match.path}/create`} component={CreatePersonForm} />
+        <Route exact path={`${match.path}/:person`} component={UpdatePersonForm} />
+        <Route exact path={`${match.path}/:person/accounts`} component={ListAccounts} />
+        <Route exact path={`${match.path}/:person/event_members`} component={ListEventMembers} />
+        <Route exact path={`${match.path}/:person/person_in_groups`} component={ListPersonInGroups} />
+      </Switch>
+    </Page>
+  )  
+  

@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { ApolloProvider } from 'react-apollo'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { createApolloClient } from 'apollo'
+import { Flex, Loader } from 'ui'
+import { Navbar, SideBar, Main } from 'components'
+
+export class App extends Component {
+  state = { client: null, loaded: false }
+  async componentDidMount() {
+    const client = await createApolloClient('http://ksa.spsu.ru/graphql')
+    this.setState({ client, loaded: true })
+  }
+  render() {
+    const { client, loaded } = this.state
+    if (!loaded) {
+      return null
+    }
+    return (
+      <ApolloProvider client={client}>
+        <BrowserRouter>
+          <Fragment>
+            <Navbar />
+            <Flex flexDirection={['column', 'row']}>
+              <SideBar />
+              <Main />
+            </Flex>
+          </Fragment>
+        </BrowserRouter>
+      </ApolloProvider>
+    )
+  }
 }
-
-export default App;

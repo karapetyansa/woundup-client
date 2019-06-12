@@ -3,9 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-cache-persist": "0.1.1",
+    "apollo-client-preset": "1.0.8",
+    "apollo-link-error": "1.1.0",
+    "apollo-link-state": "0.4.1",
+    "final-form": "^4.14.1",
+    "grid-styled": "^5.0.2",
     "react": "^16.8.6",
+    "react-apollo": "2.1.5",
+    "react-autocomplete": "1.8.1",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-final-form": "^6.1.0",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "3.0.1",
+    "rebass": "3.1.1",
+    "styled-components": "3.3.2",
+    "system-components": "3.0.3",
+    "unmaintained-react-scripts-babel-macros": "1.0.13"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-literal-to-ast": "^2.1.0",
+    "graphql-tag.macro": "^2.1.0"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "account": {
+    "personId": "person"
+  },
+  "event_member": {
+    "eventId": "event",
+    "participant": "person",
+    "moderator": "person"
+  },
+  "person_in_group": {
+    "personId": "person",
+    "groupId": "groupOfPeople"
+  },
+  "timetable": {
+    "eventId": "event",
+    "placeId": "place"
+  }
+}
