@@ -21,10 +21,10 @@
       await deleteRow({ nodeId })
     }
     render() {
-      const { nodeId, login, personId, person } = this.props
+      const { nodeId, passwordHash, personId, person } = this.props
       return (
         <Tr> 
-          <Td>{login}</Td> 
+          <Td>{passwordHash}</Td> 
           <Td>{personId && personId.label}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/accounts/' + personId.value}>
@@ -64,7 +64,7 @@
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Login', 'Person Id' ]} />
+              <Header headers={[ 'Password Hash', 'Person Id' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteAccount} data={mainQuery.nodes} />}
             </Tbody>

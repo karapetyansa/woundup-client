@@ -1,7 +1,7 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag.macro'
 
 export const FRAGMENT_GROUP_OF_PEOPLE = gql`
-  fragment GroupOfPeople on GroupOfPeople {
+  fragment GroupOfPeople on GroupOfPerson {
     nodeId
     id
     name
@@ -11,7 +11,7 @@ export const FRAGMENT_GROUP_OF_PEOPLE = gql`
 `
 
 const FRAGMENT_SELECT_GROUP_OF_PEOPLE = gql`
-  fragment SelectGroupOfPeople on GroupOfPeople {
+  fragment SelectGroupOfPeople on GroupOfPerson {
     value: id
     label: name
   }
@@ -21,7 +21,7 @@ export const LIST_GROUP_OF_PEOPLE = gql`
   query LIST_GROUP_OF_PEOPLE(
     $first: Int!,
     $after: Cursor,
-    $condition: GroupOfPeopleCondition,
+    $condition: GroupOfPersonCondition,
     $isList: Boolean = true
   ) {
     mainQuery: allGroupOfPeople(

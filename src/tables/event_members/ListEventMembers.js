@@ -21,12 +21,12 @@
       await deleteRow({ nodeId })
     }
     render() {
-      const { nodeId, eventId, event, participant, moderator, person } = this.props
+      const { nodeId, isModerator, eventId, event, participant, groupOfPeople } = this.props
       return (
         <Tr> 
+          <Td>{isModerator}</Td> 
           <Td>{eventId && eventId.label}</Td> 
-          <Td>{participant && participant.label}</Td> 
-          <Td>{moderator && moderator.label}</Td>
+          <Td>{participant && participant.label}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/event_members/' + nodeId}>
               Edit
@@ -65,7 +65,7 @@
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Event Id', 'Participant', 'Moderator' ]} />
+              <Header headers={[ 'Is Moderator', 'Event Id', 'Participant' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteEventMember} data={mainQuery.nodes} />}
             </Tbody>
@@ -79,8 +79,8 @@
   
   const configObject = {
     options: ({ match = {} }) => {
-      const { event, person } = match.params || {}
-      const condition = omitBy({ eventId: event, participant: person, moderator: person }, isNil)
+      const { event, groupOfPeople } = match.params || {}
+      const condition = omitBy({ eventId: event, participant: groupOfPeople }, isNil)
       return {
         variables: {
           first: 50,

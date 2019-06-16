@@ -5,8 +5,8 @@
   import { Page, Flex, Tabs, Tab, NavLink } from 'ui'
   import { ListEvents } from './ListEvents'
   import { CreateEventForm, UpdateEventForm } from './EventForm'
-  import { ListEventMembers } from 'tables/event_members/ListEventMembers'
   import { ListTimetables } from 'tables/timetables/ListTimetables'
+  import { ListEventMembers } from 'tables/event_members/ListEventMembers'
   
   const RefTabs = ({ match }) => (
     <Tabs
@@ -18,11 +18,11 @@
       <Tab is={NavLink} exact to={`${match.url}`}>
         Main
       </Tab>
-      <Tab is={NavLink} to={`${match.url}/event_members`}>
-        Event Members
-      </Tab> 
       <Tab is={NavLink} to={`${match.url}/timetables`}>
         Timetables
+      </Tab> 
+      <Tab is={NavLink} to={`${match.url}/event_members`}>
+        Event Members
       </Tab> 
     </Tabs>
   )
@@ -34,8 +34,8 @@
       <Switch>
         <Route exact path={`${match.path}/create`} component={CreateEventForm} />
         <Route exact path={`${match.path}/:event`} component={UpdateEventForm} />
-        <Route exact path={`${match.path}/:event/event_members`} component={ListEventMembers} />
         <Route exact path={`${match.path}/:event/timetables`} component={ListTimetables} />
+        <Route exact path={`${match.path}/:event/event_members`} component={ListEventMembers} />
       </Switch>
     </Page>
   )  

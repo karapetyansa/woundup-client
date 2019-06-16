@@ -52,13 +52,6 @@ class AccountForm extends Component {
               placeholder="Select Person Id"
             />
             <Field
-              name="login"
-              label="Login"
-              component={InputAdapter}
-              type="text"
-              placeholder="Insert Login"
-            />
-            <Field
               name="passwordHash"
               label="Password Hash"
               component={InputAdapter}
@@ -71,6 +64,13 @@ class AccountForm extends Component {
               component={InputAdapter}
               type="text"
               placeholder="Insert Role"
+            />
+            <Field
+              name="login"
+              label="Login"
+              component={InputAdapter}
+              type="text"
+              placeholder="Insert Login"
             />
             <Box>
               <Button type="submit" disabled={submitting}>

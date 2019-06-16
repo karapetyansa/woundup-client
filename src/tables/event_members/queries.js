@@ -1,28 +1,25 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag.macro'
 
 export const FRAGMENT_EVENT_MEMBER = gql`
   fragment EventMember on EventMember {
     nodeId
+    isModerator
     eventId: eventByEventId {
       value: id
       label: name
     }
-    participant: personByParticipant {
+    participant: groupOfPersonByParticipant {
       value: id
-      label: id
+      label: name
     }
-    moderator: personByModerator {
-      value: id
-      label: id
-    }
-    serviceSuehsr: eventId @skip(if: $isList)
+    serviceSuehsr: isModerator @skip(if: $isList)
   }
 `
 
 const FRAGMENT_SELECT_EVENT_MEMBER = gql`
   fragment SelectEventMember on EventMember {
     value: nodeId
-    label: participant
+    label: isModerator
   }
 `
 
@@ -55,7 +52,7 @@ export const SELECT_LIST_EVENT_MEMBER = gql`
     list: allEventMembers(
       first: $first
       after: $after
-      filter: { participant: { includesInsensitive: $searchValue } }
+      filter: { is_moderator: { includesInsensitive: $searchValue } }
     ) {
       nodes {
         ...SelectEventMember

@@ -12,7 +12,6 @@ import { addToken } from './helpers'
 class SigninForm extends Component {
   onSubmit = async values => {
     const { client, authenticate, history, addAuth } = this.props
-    console.log('onSubmit')
     try {
       const { data } = await authenticate({ ...values })
       addToken({ addAuth, ...values, data, client, history })
@@ -27,11 +26,11 @@ class SigninForm extends Component {
         onSubmit={this.onSubmit}
         subscription={subscription}
         render={({ handleSubmit, submitting }) => (
-          <form is="form" flexDirection="column" onSubmit={handleSubmit}>
+          <Card is="form" flexDirection="column" onSubmit={handleSubmit}>
             {renderInput('login', 'Login', 'Input login')}
             {renderInput('password', 'Password', 'Input password')}
-            <Button disabled={submitting} type="submit">Signin</Button>
-          </form>
+            <Button disabled={submitting}>Signin</Button>
+          </Card>
         )}
       />
     )

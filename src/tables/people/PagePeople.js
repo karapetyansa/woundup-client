@@ -5,9 +5,8 @@
   import { Page, Flex, Tabs, Tab, NavLink } from 'ui'
   import { ListPeople } from './ListPeople'
   import { CreatePersonForm, UpdatePersonForm } from './PersonForm'
-  import { ListAccounts } from 'tables/accounts/ListAccounts'
-  import { ListEventMembers } from 'tables/event_members/ListEventMembers'
   import { ListPersonInGroups } from 'tables/person_in_groups/ListPersonInGroups'
+  import { ListAccounts } from 'tables/accounts/ListAccounts'
   
   const RefTabs = ({ match }) => (
     <Tabs
@@ -19,14 +18,11 @@
       <Tab is={NavLink} exact to={`${match.url}`}>
         Main
       </Tab>
-      <Tab is={NavLink} to={`${match.url}/accounts`}>
-        Accounts
-      </Tab> 
-      <Tab is={NavLink} to={`${match.url}/event_members`}>
-        Event Members
-      </Tab> 
       <Tab is={NavLink} to={`${match.url}/person_in_groups`}>
         Person In Groups
+      </Tab> 
+      <Tab is={NavLink} to={`${match.url}/accounts`}>
+        Accounts
       </Tab> 
     </Tabs>
   )
@@ -38,9 +34,8 @@
       <Switch>
         <Route exact path={`${match.path}/create`} component={CreatePersonForm} />
         <Route exact path={`${match.path}/:person`} component={UpdatePersonForm} />
-        <Route exact path={`${match.path}/:person/accounts`} component={ListAccounts} />
-        <Route exact path={`${match.path}/:person/event_members`} component={ListEventMembers} />
         <Route exact path={`${match.path}/:person/person_in_groups`} component={ListPersonInGroups} />
+        <Route exact path={`${match.path}/:person/accounts`} component={ListAccounts} />
       </Switch>
     </Page>
   )  

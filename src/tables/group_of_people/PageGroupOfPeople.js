@@ -6,6 +6,7 @@
   import { ListGroupOfPeople } from './ListGroupOfPeople'
   import { CreateGroupOfPeopleForm, UpdateGroupOfPeopleForm } from './GroupOfPeopleForm'
   import { ListPersonInGroups } from 'tables/person_in_groups/ListPersonInGroups'
+  import { ListEventMembers } from 'tables/event_members/ListEventMembers'
   
   const RefTabs = ({ match }) => (
     <Tabs
@@ -20,6 +21,9 @@
       <Tab is={NavLink} to={`${match.url}/person_in_groups`}>
         Person In Groups
       </Tab> 
+      <Tab is={NavLink} to={`${match.url}/event_members`}>
+        Event Members
+      </Tab> 
     </Tabs>
   )
   
@@ -31,6 +35,7 @@
         <Route exact path={`${match.path}/create`} component={CreateGroupOfPeopleForm} />
         <Route exact path={`${match.path}/:group_of_people`} component={UpdateGroupOfPeopleForm} />
         <Route exact path={`${match.path}/:group_of_people/person_in_groups`} component={ListPersonInGroups} />
+        <Route exact path={`${match.path}/:group_of_people/event_members`} component={ListEventMembers} />
       </Switch>
     </Page>
   )  

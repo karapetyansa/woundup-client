@@ -51,20 +51,19 @@ class EventMemberForm extends Component {
               placeholder="Select Event Id"
             />
             <Field
+              name="isModerator"
+              label="Is Moderator"
+              component={InputAdapter}
+              type="text"
+              placeholder="Insert Is Moderator"
+            />
+            <Field
               name="participant"
-              fkey='person'
+              fkey='group_of_people'
               label="Participant"
               component={SelectAdapter}
               type="text"
               placeholder="Select Participant"
-            />
-            <Field
-              name="moderator"
-              fkey='person'
-              label="Moderator"
-              component={SelectAdapter}
-              type="text"
-              placeholder="Select Moderator"
             />
             <Box>
               <Button type="submit" disabled={submitting}>

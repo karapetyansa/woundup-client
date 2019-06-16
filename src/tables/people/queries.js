@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag.macro'
 
 export const FRAGMENT_PERSON = gql`
   fragment Person on Person {

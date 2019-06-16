@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag.macro'
 
 export const AUTH_MUTATION = gql`
   mutation authenticate($login: String!, $password: String!) {

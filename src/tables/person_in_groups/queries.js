@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag.macro'
 
 export const FRAGMENT_PERSON_IN_GROUP = gql`
   fragment PersonInGroup on PersonInGroup {
@@ -7,7 +7,7 @@ export const FRAGMENT_PERSON_IN_GROUP = gql`
       value: id
       label: id
     }
-    groupId: groupOfPeopleByGroupId {
+    groupId: groupOfPersonByGroupId {
       value: id
       label: name
     }
