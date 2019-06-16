@@ -62,9 +62,9 @@ export const SELECT_LIST_EVENT_MEMBER = gql`
   ${FRAGMENT_SELECT_EVENT_MEMBER}
 `
 export const CREATE_EVENT_MEMBER = gql`
-  mutation createEventMember($event_memberPatch: EventMemberInput!, $isList: Boolean = false) {
-    createEventMember(input: { event_member: $event_memberPatch }) {
-      event_member {
+  mutation createEventMember($eventMemberPatch: EventMemberInput!, $isList: Boolean = false) {
+    createEventMember(input: { eventMember: $eventMemberPatch }) {
+      eventMember {
         ...EventMember
       }
     }
@@ -75,12 +75,12 @@ export const CREATE_EVENT_MEMBER = gql`
 export const UPDATE_EVENT_MEMBER = gql`
   mutation updateEventMember(
     $nodeId: ID!
-    $event_memberPatch: EventMemberPatch!
+    $eventMemberPatch: EventMemberPatch!
     $isList: Boolean = false
   ) {
-    updateEventMember(input: { nodeId: $nodeId, event_memberPatch: $event_memberPatch }) {
+    updateEventMember(input: { nodeId: $nodeId, eventMemberPatch: $eventMemberPatch }) {
       clientMutationId
-      event_member {
+      eventMember {
         ...EventMember
       }
     }
@@ -98,7 +98,7 @@ export const DELETE_EVENT_MEMBER = gql`
 
 export const READ_EVENT_MEMBER = gql`
   query readEventMember($id: ID!, $isList: Boolean!) {
-    event_member: event_member(nodeId: $id) {
+    eventMember: eventMember(nodeId: $id) {
       ...EventMember
     }
   }
@@ -107,7 +107,7 @@ export const READ_EVENT_MEMBER = gql`
 
 export const SELECT_EVENT_MEMBER = gql`
   query Item($value: ID!) {
-    item: event_member(nodeId: $value) {
+    item: eventMember(nodeId: $value) {
       ...SelectEventMember
     }
   }

@@ -84,7 +84,7 @@ const config = {
       params: { group_of_people: id }
     }
   }) => ({
-    variables: { id, isList: false },
+    variables: { id: Number(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

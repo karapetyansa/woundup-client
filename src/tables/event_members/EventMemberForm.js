@@ -30,7 +30,7 @@ class EventMemberForm extends Component {
   }
 
   render() {
-    const { event_member, initialValues } = this.props
+    const { eventMember, initialValues } = this.props
     return (
       <Form
         onSubmit={this.onSubmit}
@@ -67,7 +67,7 @@ class EventMemberForm extends Component {
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!event_member ? 'Update' : 'Create'}
+                {!!eventMember ? 'Update' : 'Create'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
                 Reset
@@ -80,10 +80,10 @@ class EventMemberForm extends Component {
   }
 }
 
-const props = ({ data: { loading, error, event_member } }) => ({
+const props = ({ data: { loading, error, eventMember } }) => ({
   loading,
   error,
-  event_member
+  eventMember
 })
 
 const config = {
@@ -100,10 +100,10 @@ const config = {
 
 export const CreateEventMemberForm = graphql(
   CREATE_EVENT_MEMBER,
-  mutateProp('createEventMember', getInitValues('event_member'))
+  mutateProp('createEventMember', getInitValues('eventMember'))
 )(EventMemberForm)
 
 export const UpdateEventMemberForm = compose(
   graphql(READ_EVENT_MEMBER, config),
-  graphql(UPDATE_EVENT_MEMBER, mutateProp('updateEventMember', getInitValues('event_member')))
+  graphql(UPDATE_EVENT_MEMBER, mutateProp('updateEventMember', getInitValues('eventMember')))
 )(EventMemberForm)

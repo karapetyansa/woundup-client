@@ -73,10 +73,10 @@ class PersonInGroupForm extends Component {
   }
 }
 
-const props = ({ data: { loading, error, person_in_group } }) => ({
+const props = ({ data: { loading, error, personInGroup } }) => console.log('person_in_group', personInGroup) || ({
   loading,
   error,
-  person_in_group
+  personInGroup
 })
 
 const config = {
@@ -93,10 +93,10 @@ const config = {
 
 export const CreatePersonInGroupForm = graphql(
   CREATE_PERSON_IN_GROUP,
-  mutateProp('createPersonInGroup', getInitValues('person_in_group'))
+  mutateProp('createPersonInGroup', getInitValues('personInGroup'))
 )(PersonInGroupForm)
 
 export const UpdatePersonInGroupForm = compose(
   graphql(READ_PERSON_IN_GROUP, config),
-  graphql(UPDATE_PERSON_IN_GROUP, mutateProp('updatePersonInGroup', getInitValues('person_in_group')))
+  graphql(UPDATE_PERSON_IN_GROUP, mutateProp('updatePersonInGroup', getInitValues('personInGroup'))),
 )(PersonInGroupForm)

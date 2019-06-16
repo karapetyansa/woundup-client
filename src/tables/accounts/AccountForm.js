@@ -99,7 +99,7 @@ const config = {
       params: { account: id }
     }
   }) => ({
-    variables: { id, isList: false },
+    variables: { id: Number(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

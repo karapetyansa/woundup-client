@@ -5,7 +5,7 @@ export const FRAGMENT_PERSON_IN_GROUP = gql`
     nodeId
     personId: personByPersonId {
       value: id
-      label: id
+      label: name
     }
     groupId: groupOfPersonByGroupId {
       value: id
@@ -61,9 +61,9 @@ export const SELECT_LIST_PERSON_IN_GROUP = gql`
   ${FRAGMENT_SELECT_PERSON_IN_GROUP}
 `
 export const CREATE_PERSON_IN_GROUP = gql`
-  mutation createPersonInGroup($person_in_groupPatch: PersonInGroupInput!, $isList: Boolean = false) {
-    createPersonInGroup(input: { person_in_group: $person_in_groupPatch }) {
-      person_in_group {
+  mutation createPersonInGroup($personInGroupPatch: PersonInGroupInput!, $isList: Boolean = false) {
+    createPersonInGroup(input: { personInGroup: $personInGroupPatch }) {
+      personInGroup {
         ...PersonInGroup
       }
     }
@@ -74,12 +74,12 @@ export const CREATE_PERSON_IN_GROUP = gql`
 export const UPDATE_PERSON_IN_GROUP = gql`
   mutation updatePersonInGroup(
     $nodeId: ID!
-    $person_in_groupPatch: PersonInGroupPatch!
+    $personInGroupPatch: PersonInGroupPatch!
     $isList: Boolean = false
   ) {
-    updatePersonInGroup(input: { nodeId: $nodeId, person_in_groupPatch: $person_in_groupPatch }) {
+    updatePersonInGroup(input: { nodeId: $nodeId, personInGroupPatch: $personInGroupPatch }) {
       clientMutationId
-      person_in_group {
+      personInGroup {
         ...PersonInGroup
       }
     }
@@ -97,7 +97,7 @@ export const DELETE_PERSON_IN_GROUP = gql`
 
 export const READ_PERSON_IN_GROUP = gql`
   query readPersonInGroup($id: ID!, $isList: Boolean!) {
-    person_in_group: person_in_group(nodeId: $id) {
+    personInGroup: personInGroup(nodeId: $id) {
       ...PersonInGroup
     }
   }
@@ -106,7 +106,7 @@ export const READ_PERSON_IN_GROUP = gql`
 
 export const SELECT_PERSON_IN_GROUP = gql`
   query Item($value: ID!) {
-    item: person_in_group(nodeId: $value) {
+    item: personInGroup(nodeId: $value) {
       ...SelectPersonInGroup
     }
   }

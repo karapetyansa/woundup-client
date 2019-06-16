@@ -92,7 +92,7 @@ export const DELETE_GROUP_OF_PEOPLE = gql`
 
 export const READ_GROUP_OF_PEOPLE = gql`
   query readGroupOfPeople($id: Int!, $isList: Boolean!) {
-    group_of_people: groupOfPeopleById(id: $id) {
+    group_of_people: groupOfPersonById(id: $id) {
       ...GroupOfPeople
     }
   }
@@ -101,7 +101,7 @@ export const READ_GROUP_OF_PEOPLE = gql`
 
 export const SELECT_GROUP_OF_PEOPLE = gql`
   query Item($value: Int!) {
-    item: groupOfPeopleById(id: $value) {
+    item: groupOfPersonById(id: $value) {
       ...SelectGroupOfPeople
     }
   }
