@@ -73,7 +73,7 @@ class PersonInGroupForm extends Component {
   }
 }
 
-const props = ({ data: { loading, error, personInGroup } }) => console.log('person_in_group', personInGroup) || ({
+const props = ({ data: { loading, error, personInGroup } }) => ({
   loading,
   error,
   personInGroup

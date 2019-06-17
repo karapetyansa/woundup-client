@@ -79,8 +79,8 @@
   
   const configObject = {
     options: ({ match = {} }) => {
-      const { event, groupOfPeople } = match.params || {}
-      const condition = omitBy({ eventId: event, participant: groupOfPeople }, isNil)
+      const { event, group_of_people } = match.params || {}
+      const condition = omitBy({ eventId: event, participant: group_of_people ? Number(group_of_people) : null }, isNil)
       return {
         variables: {
           first: 50,

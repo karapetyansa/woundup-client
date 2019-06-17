@@ -78,8 +78,10 @@
   
   const configObject = {
     options: ({ match = {} }) => {
-      const { person, groupOfPeople } = match.params || {}
-      const condition = omitBy({ personId: person, groupId: groupOfPeople }, isNil)
+      const { person, group_of_people } = match.params || {}
+      console.log('match.params', match.params)
+      const condition = omitBy({ personId: person, groupId: group_of_people ? Number(group_of_people) : null }, isNil)
+      console.log('condition', condition)
       return {
         variables: {
           first: 50,
