@@ -10,6 +10,7 @@
   
   import { DELETE_TIMETABLE, LIST_TIMETABLES } from './queries'
   import { transformListProps, mutateProp } from 'apollo/helpers'
+import { toNumber } from 'utils';
   
   const renderHeaderCell = (cell, i) => <Th key={i}>{cell}</Th>
   
@@ -80,7 +81,7 @@
   const configObject = {
     options: ({ match = {} }) => {
       const { event, place } = match.params || {}
-      const condition = omitBy({ eventId: event, placeId: place }, isNil)
+      const condition = omitBy({ eventId: toNumber(event), placeId: toNumber(place) }, isNil)
       return {
         variables: {
           first: 50,

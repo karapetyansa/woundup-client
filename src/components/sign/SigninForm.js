@@ -26,7 +26,7 @@ class SigninForm extends Component {
         onSubmit={this.onSubmit}
         subscription={subscription}
         render={({ handleSubmit, submitting }) => (
-          <Card is="form" flexDirection="column" onSubmit={handleSubmit}>
+          <Card as="form" flexDirection="column" onSubmit={handleSubmit}>
             {renderInput('login', 'Login', 'Input login')}
             {renderInput('password', 'Password', 'Input password')}
             <Button disabled={submitting}>Signin</Button>

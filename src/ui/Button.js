@@ -1,9 +1,11 @@
 import sys from 'system-components'
+
 import { buttonStyle } from 'styles/helpers'
 
 const Button = sys(
   {
     is: 'button',
+    fontFamily: 'sans',
     fontSize: 1,
     fontWeight: 'bold',
     bg: 'transparent',
@@ -16,7 +18,7 @@ const Button = sys(
     buttonStyle: 'primary'
   },
   props => ({
-    fontFamily: 'inherit',
+    // fontFamily: 'inherit',
     WebkitFontSmoothing: 'antialiased',
     display: 'inline-block',
     verticalAlign: 'middle',

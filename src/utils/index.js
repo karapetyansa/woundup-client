@@ -69,3 +69,5 @@ export const getInitValues = tableName => ({ location, ...rest }) => {
 export const required = value => (value ? undefined : 'Required')
 
 export const subscription = { submitting: true, pristine: true }
+
+export const toNumber = arg => (arg ? Number(arg) : arg)

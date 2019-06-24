@@ -8,7 +8,7 @@ export const FRAGMENT_ACCOUNT = gql`
     login @skip(if: $isList)
     personId: personByPersonId {
       value: id
-      label: id
+      label: name
     }
     serviceSuehsr: passwordHash @skip(if: $isList)
   }

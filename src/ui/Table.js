@@ -10,7 +10,7 @@ export const Tbody = ({ children }) => <Box is="tbody">{children}</Box>
 export const Th = styled(Box)`
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 0px 8px;
 `.withComponent('th')
 
 export const Td = Th.withComponent('td')

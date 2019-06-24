@@ -1,22 +1,19 @@
 import sc from 'styled-components'
-import sys from 'system-components'
+import system from '@rebass/components'
 
-// import { Fixed as Fx } from 'rebass'
-const Position = sys(
-    'space',
-    'color',
-    'zIndex',
-    'top',
-    'right',
-    'bottom',
-    'left'
-  )
-  
-const Fx = sys({
-    is: Position
-  }, {
+const Fx = system(
+  {
     position: 'fixed'
-  })
+  },
+  'space',
+  'color',
+  'zIndex',
+  'top',
+  'right',
+  'bottom',
+  'left',
+  'position'
+)
 
 export const Fixed = sc(Fx)`
 z-index: 1;

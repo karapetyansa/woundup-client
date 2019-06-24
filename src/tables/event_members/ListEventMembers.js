@@ -10,6 +10,7 @@
   
   import { DELETE_EVENT_MEMBER, LIST_EVENT_MEMBERS } from './queries'
   import { transformListProps, mutateProp } from 'apollo/helpers'
+import { toNumber } from 'utils';
   
   const renderHeaderCell = (cell, i) => <Th key={i}>{cell}</Th>
   
@@ -80,7 +81,7 @@
   const configObject = {
     options: ({ match = {} }) => {
       const { event, group_of_people } = match.params || {}
-      const condition = omitBy({ eventId: event, participant: group_of_people ? Number(group_of_people) : null }, isNil)
+      const condition = omitBy({ eventId: toNumber(event), participant: toNumber(group_of_people) }, isNil)
       return {
         variables: {
           first: 50,

@@ -18,7 +18,7 @@ class SelectionFieldComponent extends Component {
     { prevValue }
   ) {
     if (value !== prevValue) {
-      return { value, label, prevValue: value }
+      return { value: value || '', label, prevValue: value || '' }
     } else return null
   }
 
@@ -75,6 +75,7 @@ class SelectionFieldComponent extends Component {
   render() {
     const { options, label } = this.state
     const { id, placeholder } = this.props
+    console.log('SelectionFieldComponent', this.props, this.state)
     return (
       <Autocomplete
         inputProps={{ id: id, name: id, placeholder }}
@@ -105,7 +106,7 @@ class SelectionFieldComponent extends Component {
   renderInput = ({ ref, ...props }) => (
     <Flex flexDirection="column">
       <Label>{this.props.label}</Label>
-      <Input innerRef={ref} {...props} />
+      <Input ref={ref} {...props} />
     </Flex>
   )
 }

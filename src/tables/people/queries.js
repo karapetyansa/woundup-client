@@ -3,7 +3,7 @@ import gql from 'graphql-tag.macro'
 export const FRAGMENT_PERSON = gql`
   fragment Person on Person {
     nodeId
-    name @skip(if: $isList)
+    name
     id
     serviceSuehsr: name @skip(if: $isList)
   }
@@ -12,7 +12,7 @@ export const FRAGMENT_PERSON = gql`
 const FRAGMENT_SELECT_PERSON = gql`
   fragment SelectPerson on Person {
     value: id
-    label: id
+    label: name
   }
 `
 
@@ -45,7 +45,7 @@ export const SELECT_LIST_PERSON = gql`
     list: allPeople(
       first: $first
       after: $after
-      filter: { id: { includesInsensitive: $searchValue } }
+      filter: { name: { includesInsensitive: $searchValue } }
     ) {
       nodes {
         ...SelectPerson

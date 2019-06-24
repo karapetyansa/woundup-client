@@ -21,10 +21,11 @@
       await deleteRow({ nodeId })
     }
     render() {
-      const { nodeId, id } = this.props
+      const { nodeId, id, name } = this.props
       return (
         <Tr> 
           <Td>{id}</Td>
+          <Td>{name}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/people/' + id}>
               Edit

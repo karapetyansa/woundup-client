@@ -31,13 +31,14 @@ class PersonInGroupForm extends Component {
 
   render() {
     const { person_in_group, initialValues } = this.props
+    console.log('PersonInGroupForm', this.props)
     return (
       <Form
         onSubmit={this.onSubmit}
         initialValues={initialValues}
         subscription={subscription}
         render={({ handleSubmit, form: { reset }, submitting, pristine }) => (
-          <Card is="form" flexDirection="column" onSubmit={handleSubmit}>
+          <Card as="form" flexDirection="column" onSubmit={handleSubmit}>
             <Prompt
               when={!pristine}
               message="Are you sure you want to leave?"

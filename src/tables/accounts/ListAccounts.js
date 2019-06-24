@@ -24,7 +24,7 @@
       const { nodeId, passwordHash, personId, person } = this.props
       return (
         <Tr> 
-          <Td>{passwordHash}</Td> 
+          {/* <Td>{passwordHash}</Td>  */}
           <Td>{personId && personId.label}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/accounts/' + personId.value}>
