@@ -22,11 +22,13 @@ import { toNumber } from 'utils';
       await deleteRow({ nodeId })
     }
     render() {
-      const { nodeId, id, eventId, event, placeId, place } = this.props
+      const { nodeId, id, eventId, event, placeId, startTime, endTime } = this.props
       return (
         <Tr> 
           <Td>{id}</Td> 
           <Td>{eventId && eventId.label}</Td> 
+          <Td>{startTime && new Date(startTime+'z').toLocaleString()}</Td> 
+          <Td>{endTime && new Date(endTime+'z').toLocaleString()}</Td> 
           <Td>{placeId && placeId.label}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/timetables/' + id}>
@@ -66,7 +68,7 @@ import { toNumber } from 'utils';
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Id', 'Event Id', 'Place Id' ]} />
+              <Header headers={[ 'Id', 'Событие', 'Начало', 'Конец', 'Место' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteTimetable} data={mainQuery.nodes} />}
             </Tbody>

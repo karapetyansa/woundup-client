@@ -4,8 +4,8 @@ export const FRAGMENT_TIMETABLE = gql`
   fragment Timetable on Timetable {
     nodeId
     id
-    startTime @skip(if: $isList)
-    endTime @skip(if: $isList)
+    startTime
+    endTime
     eventId: eventByEventId {
       value: id
       label: name
