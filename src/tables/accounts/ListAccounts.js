@@ -10,6 +10,7 @@
   
   import { DELETE_ACCOUNT, LIST_ACCOUNTS } from './queries'
   import { transformListProps, mutateProp } from 'apollo/helpers'
+import { toNumber } from 'utils';
   
   const renderHeaderCell = (cell, i) => <Th key={i}>{cell}</Th>
   
@@ -21,19 +22,21 @@
       await deleteRow({ nodeId })
     }
     render() {
-      const { nodeId, passwordHash, personId, person } = this.props
+      const { nodeId, passwordHash, personId, person, login, role } = this.props
       return (
         <Tr> 
           {/* <Td>{passwordHash}</Td>  */}
           <Td>{personId && personId.label}</Td>
+          <Td>{login}</Td>
+          <Td>{role}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/accounts/' + personId.value}>
-              Edit
+              Редактировать
             </Button>
           </Td>
           <Td>
             <Button mx={0} onClick={this.delete}>
-              Delete
+              Удалить
             </Button>
           </Td>
         </Tr>
@@ -57,14 +60,14 @@
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Refetch</Button>
+            <Button onClick={refetch}>Обновить с сервера</Button>
             <Button is={Link} to={this.toCreate}>
-              Create
+              Создать
             </Button>
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Password Hash', 'Person Id' ]} />
+              <Header headers={[ 'Имя', 'Логин', 'Роль' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteAccount} data={mainQuery.nodes} />}
             </Tbody>
@@ -79,7 +82,7 @@
   const configObject = {
     options: ({ match = {} }) => {
       const { person } = match.params || {}
-      const condition = omitBy({ personId: person }, isNil)
+      const condition = omitBy({ personId: toNumber(person) }, isNil)
       return {
         variables: {
           first: 50,

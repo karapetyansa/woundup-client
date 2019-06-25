@@ -14,28 +14,28 @@
           alignItems="stretch"
       >
           <Tab is={NavLink} mx={[0, 2]} to={'/places'}>
-            <Text textAlign="left">Places</Text>
+            <Text textAlign="left">Места</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/events'}>
-            <Text textAlign="left">Events</Text>
+            <Text textAlign="left">События</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/person_in_groups'}>
-            <Text textAlign="left">Person In Groups</Text>
+            <Text textAlign="left">Члены групп</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/timetables'}>
-            <Text textAlign="left">Timetables</Text>
+            <Text textAlign="left">Расписание</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/group_of_people'}>
-            <Text textAlign="left">Group Of People</Text>
+            <Text textAlign="left">Группы пользователей</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/event_members'}>
-            <Text textAlign="left">Event Members</Text>
+            <Text textAlign="left">Участники</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/accounts'}>
-            <Text textAlign="left">Accounts</Text>
+            <Text textAlign="left">Аккаунты</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/people'}>
-            <Text textAlign="left">People</Text>
+            <Text textAlign="left">Пользователи</Text>
           </Tab>
         </Tabs>
       )

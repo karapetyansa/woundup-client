@@ -46,25 +46,25 @@ class PersonInGroupForm extends Component {
             <Field
               name="personId"
               fkey='person'
-              label="Person Id"
+              label="Пользвоатель"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Person Id"
+              placeholder="Выберите пользователя"
             />
             <Field
               name="groupId"
               fkey='group_of_people'
-              label="Group Id"
+              label="Группа пользователей"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Group Id"
+              placeholder="Выберите группу"
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!person_in_group ? 'Update' : 'Create'}
+                {!!person_in_group ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>

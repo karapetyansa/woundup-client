@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
 import { Prompt } from 'react-router'
 
-import { objectDifference, getPatch, getInitValues } from 'utils'
+import { objectDifference, getPatch, getInitValues, toNumber } from 'utils'
 import { required, subscription, SelectAdapter, InputAdapter } from 'ui/utils'
 import { Box, Card, Button } from 'ui'
 import { mutateProp } from 'apollo/helpers'
@@ -52,10 +52,10 @@ class PersonForm extends Component {
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!person ? 'Update' : 'Create'}
+                {!!person ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>
@@ -77,7 +77,7 @@ const config = {
       params: { person: id }
     }
   }) => ({
-    variables: { id: Number(id), isList: false },
+    variables: { id: toNumber(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

@@ -16,13 +16,13 @@
       flexDirection={['column', 'row']}
     >
       <Tab is={NavLink} exact to={`${match.url}`}>
-        Main
+        Главная
       </Tab>
       <Tab is={NavLink} to={`${match.url}/person_in_groups`}>
-        Person In Groups
+        Участник групп
       </Tab> 
       <Tab is={NavLink} to={`${match.url}/accounts`}>
-        Accounts
+        Аккаунты
       </Tab> 
     </Tabs>
   )

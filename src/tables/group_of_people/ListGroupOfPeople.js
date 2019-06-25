@@ -21,19 +21,20 @@
       await deleteRow({ nodeId })
     }
     render() {
-      const { nodeId, id, name } = this.props
+      const { nodeId, id, name, abbrName } = this.props
       return (
         <Tr> 
           <Td>{id}</Td> 
           <Td>{name}</Td>
+          <Td>{abbrName}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/group_of_people/' + id}>
-              Edit
+              Редактировать
             </Button>
           </Td>
           <Td>
             <Button mx={0} onClick={this.delete}>
-              Delete
+              Удалить
             </Button>
           </Td>
         </Tr>
@@ -57,14 +58,14 @@
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Refetch</Button>
+            <Button onClick={refetch}>Обновить с сервера</Button>
             <Button is={Link} to={this.toCreate}>
-              Create
+              Создать
             </Button>
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Id', 'Name' ]} />
+              <Header headers={[ 'ИД', 'Название', 'Номер' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteGroupOfPeople} data={mainQuery.nodes} />}
             </Tbody>

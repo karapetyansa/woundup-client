@@ -45,32 +45,32 @@ class EventMemberForm extends Component {
             <Field
               name="eventId"
               fkey='event'
-              label="Event Id"
+              label="Событие"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Event Id"
+              placeholder="Выберите событие"
             />
             <Field
               name="isModerator"
-              label="Is Moderator"
+              label="Ведущие"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Is Moderator"
+              placeholder="Введите true или false"
             />
             <Field
               name="participant"
               fkey='group_of_people'
-              label="Participant"
+              label="Группа участников"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Participant"
+              placeholder="Выберите группу участников"
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!eventMember ? 'Update' : 'Create'}
+                {!!eventMember ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>

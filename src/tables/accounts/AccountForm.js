@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
 import { Prompt } from 'react-router'
 
-import { objectDifference, getPatch, getInitValues } from 'utils'
+import { objectDifference, getPatch, getInitValues, toNumber } from 'utils'
 import { required, subscription, SelectAdapter, InputAdapter } from 'ui/utils'
 import { Box, Card, Button } from 'ui'
 import { mutateProp } from 'apollo/helpers'
@@ -46,38 +46,31 @@ class AccountForm extends Component {
             <Field
               name="personId"
               fkey='person'
-              label="Person Id"
+              label="Имя пользователя"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Person Id"
-            />
-            <Field
-              name="passwordHash"
-              label="Password Hash"
-              component={InputAdapter}
-              type="text"
-              placeholder="Insert Password Hash"
+              placeholder="Выберите имя"
             />
             <Field
               name="role"
-              label="Role"
+              label="Роль"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Role"
+              placeholder="Введите роль"
             />
             <Field
               name="login"
-              label="Login"
+              label="Логин"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Login"
+              placeholder="Введите логин"
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!account ? 'Update' : 'Create'}
+                {!!account ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>
@@ -99,7 +92,7 @@ const config = {
       params: { account: id }
     }
   }) => ({
-    variables: { id: Number(id), isList: false },
+    variables: { id: toNumber(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

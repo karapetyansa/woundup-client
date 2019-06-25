@@ -3,21 +3,20 @@ import gql from 'graphql-tag.macro'
 export const FRAGMENT_ACCOUNT = gql`
   fragment Account on Account {
     nodeId
-    passwordHash
-    role @skip(if: $isList)
-    login @skip(if: $isList)
+    role
+    login
     personId: personByPersonId {
       value: id
       label: name
     }
-    serviceSuehsr: passwordHash @skip(if: $isList)
+    serviceSuehsr: login @skip(if: $isList)
   }
 `
 
 const FRAGMENT_SELECT_ACCOUNT = gql`
   fragment SelectAccount on Account {
     value: personId
-    label: passwordHash
+    label: name
   }
 `
 

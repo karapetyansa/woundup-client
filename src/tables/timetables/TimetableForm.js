@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
 import { Prompt } from 'react-router'
 
-import { objectDifference, getPatch, getInitValues } from 'utils'
+import { objectDifference, getPatch, getInitValues, toNumber } from 'utils'
 import { required, subscription, SelectAdapter, InputAdapter } from 'ui/utils'
 import { Box, Card, Button } from 'ui'
 import { mutateProp } from 'apollo/helpers'
@@ -46,39 +46,39 @@ class TimetableForm extends Component {
             <Field
               name="eventId"
               fkey='event'
-              label="Event Id"
+              label="Событие"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Event Id"
+              placeholder="Выберите событие"
             />
             <Field
               name="placeId"
               fkey='place'
-              label="Place Id"
+              label="Место проведения"
               component={SelectAdapter}
               type="text"
-              placeholder="Select Place Id"
+              placeholder="Выберите место проведения"
             />
             <Field
               name="startTime"
-              label="Start Time"
+              label="Начало"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Start Time"
+              placeholder="Введите время начала"
             />
             <Field
               name="endTime"
-              label="End Time"
+              label="Окончание"
               component={InputAdapter}
               type="text"
-              placeholder="Insert End Time"
+              placeholder="Введите время окончания"
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!timetable ? 'Update' : 'Create'}
+                {!!timetable ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>
@@ -100,7 +100,7 @@ const config = {
       params: { timetable: id }
     }
   }) => ({
-    variables: { id: Number(id), isList: false },
+    variables: { id: toNumber(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

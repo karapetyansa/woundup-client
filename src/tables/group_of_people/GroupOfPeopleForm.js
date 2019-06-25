@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
 import { Prompt } from 'react-router'
 
-import { objectDifference, getPatch, getInitValues } from 'utils'
+import { objectDifference, getPatch, getInitValues, toNumber } from 'utils'
 import { required, subscription, SelectAdapter, InputAdapter } from 'ui/utils'
 import { Box, Card, Button } from 'ui'
 import { mutateProp } from 'apollo/helpers'
@@ -59,10 +59,10 @@ class GroupOfPeopleForm extends Component {
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!group_of_people ? 'Update' : 'Create'}
+                {!!group_of_people ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>
@@ -84,7 +84,7 @@ const config = {
       params: { group_of_people: id }
     }
   }) => ({
-    variables: { id: Number(id), isList: false },
+    variables: { id: toNumber(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

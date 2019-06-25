@@ -30,12 +30,12 @@ import { toNumber } from 'utils';
           <Td>{participant && participant.label}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/event_members/' + nodeId}>
-              Edit
+              Редактировать
             </Button>
           </Td>
           <Td>
             <Button mx={0} onClick={this.delete}>
-              Delete
+              Удалить
             </Button>
           </Td>
         </Tr>
@@ -59,14 +59,14 @@ import { toNumber } from 'utils';
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Refetch</Button>
+            <Button onClick={refetch}>Обновить с сервера</Button>
             <Button is={Link} to={this.toCreate}>
-              Create
+              Создать
             </Button>
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Is Moderator', 'Event Id', 'Participant' ]} />
+              <Header headers={[ 'Ведущие', 'Событие', 'Группа участников' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteEventMember} data={mainQuery.nodes} />}
             </Tbody>

@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
 import { Prompt } from 'react-router'
 
-import { objectDifference, getPatch, getInitValues } from 'utils'
+import { objectDifference, getPatch, getInitValues, toNumber } from 'utils'
 import { required, subscription, SelectAdapter, InputAdapter } from 'ui/utils'
 import { Box, Card, Button } from 'ui'
 import { mutateProp } from 'apollo/helpers'
@@ -45,17 +45,17 @@ class EventForm extends Component {
             />
             <Field
               name="name"
-              label="Name"
+              label="Название"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Name"
+              placeholder="Введите название"
             />
             <Box>
               <Button type="submit" disabled={submitting}>
-                {!!event ? 'Update' : 'Create'}
+                {!!event ? 'Обновить' : 'Создать'}
               </Button>
               <Button type="button" onClick={reset} disabled={pristine}>
-                Reset
+                Сбросить
               </Button>
             </Box>
           </Card>
@@ -77,7 +77,7 @@ const config = {
       params: { event: id }
     }
   }) => ({
-    variables: { id: Number(id), isList: false },
+    variables: { id: toNumber(id), isList: false },
     fetchPolicy: 'cache-and-network'
   }),
   props

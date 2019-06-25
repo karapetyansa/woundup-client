@@ -44,7 +44,7 @@ export class Navbar extends Component {
         >
           <Tabs borderBottom={0}>
             <Tab is={NavLink} mx={0} exact to={'/'} onClick={this.toggle}>
-              PROJECT
+              WOUNDUP
             </Tab>
             <Box mx="auto" />
             <Hide hidden={[false, true]} alignItems="center">

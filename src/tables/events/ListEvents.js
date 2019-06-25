@@ -28,12 +28,12 @@
           <Td>{name}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/events/' + id}>
-              Edit
+              Редактировать
             </Button>
           </Td>
           <Td>
             <Button mx={0} onClick={this.delete}>
-              Delete
+              Удалить
             </Button>
           </Td>
         </Tr>
@@ -57,14 +57,14 @@
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Refetch</Button>
+            <Button onClick={refetch}>Обновить с сервера</Button>
             <Button is={Link} to={this.toCreate}>
-              Create
+              Создать
             </Button>
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Id', 'Name' ]} />
+              <Header headers={[ 'ИД', 'Название' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteEvent} data={mainQuery.nodes} />}
             </Tbody>

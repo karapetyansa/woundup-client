@@ -32,12 +32,12 @@ import { toNumber } from 'utils';
           <Td>{placeId && placeId.label}</Td>
           <Td>
             <Button is={Link} mx={0} to={'/timetables/' + id}>
-              Edit
+              Редактировать
             </Button>
           </Td>
           <Td>
             <Button mx={0} onClick={this.delete}>
-              Delete
+              Удалить
             </Button>
           </Td>
         </Tr>
@@ -61,14 +61,14 @@ import { toNumber } from 'utils';
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Refetch</Button>
+            <Button onClick={refetch}>Обновить с сервера</Button>
             <Button is={Link} to={this.toCreate}>
-              Create
+              Создать
             </Button>
           </Flex>
           <Tbl>
             <Tbody>
-              <Header headers={[ 'Id', 'Событие', 'Начало', 'Конец', 'Место' ]} />
+              <Header headers={[ 'ИД', 'Событие', 'Начало', 'Конец', 'Место' ]} />
               {!loading &&
                 !error && <Body deleteRow={deleteTimetable} data={mainQuery.nodes} />}
             </Tbody>

@@ -5,7 +5,7 @@ export const FRAGMENT_GROUP_OF_PEOPLE = gql`
     nodeId
     id
     name
-    abbrName @skip(if: $isList)
+    abbrName
     serviceSuehsr: id @skip(if: $isList)
   }
 `
