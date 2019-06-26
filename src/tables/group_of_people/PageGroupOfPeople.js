@@ -22,7 +22,7 @@
         Члены группы
       </Tab> 
       <Tab is={NavLink} to={`${match.url}/event_members`}>
-        Участники
+        События
       </Tab> 
     </Tabs>
   )

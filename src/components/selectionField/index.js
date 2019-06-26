@@ -18,7 +18,7 @@ class SelectionFieldComponent extends Component {
     { prevValue }
   ) {
     if (value !== prevValue) {
-      return { value: value || '', label, prevValue: value || '' }
+      return { value: value, label, prevValue: value }
     } else return null
   }
 
@@ -63,7 +63,7 @@ class SelectionFieldComponent extends Component {
     }
   }
   handleInput = (event, label) => {
-    this.setState({ label })
+    this.setState({ label } )
     this.loadOptions(label)
   }
 
