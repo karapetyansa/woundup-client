@@ -38,7 +38,7 @@ class GroupOfPeopleForm extends Component {
         initialValues={initialValues}
         subscription={subscription}
         render={({ handleSubmit, form: { reset }, submitting, pristine }) => (
-          <Card as="form" flexDirection="column" onSubmit={handleSubmit}>
+          <Card is="form" flexDirection="column" onSubmit={handleSubmit}>
             <Prompt
               when={!pristine && !!id}
               message="Are you sure you want to leave?"

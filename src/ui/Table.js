@@ -3,11 +3,12 @@ import styled from 'styled-components'
 
 import { Box } from 'ui'
 
-export const Table = ({ children }) => <Box is="table">{children}</Box>
+export const Table = ({ children }) => <Box as="table">{children}</Box>
 
-export const Tbody = ({ children }) => <Box is="tbody">{children}</Box>
+export const Tbody = ({ children }) => <Box as="tbody">{children}</Box>
 
 export const Th = styled(Box)`
+  font-family: sans-serif;
   border: 1px solid #dddddd;
   text-align: left;
   padding: 0px 8px;

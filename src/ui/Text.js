@@ -9,6 +9,7 @@ import {
 } from 'styled-system'
 
 export const Text = styled.div`
+  font-family: sans-serif
   ${color}
   ${space}
   ${fontSize}

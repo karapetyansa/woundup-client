@@ -5,6 +5,11 @@ export const AUTH_MUTATION = gql`
     authenticate(input: { login: $login, password: $password }) {
       clientMutationId
       jwtToken
+      query {
+        currentPerson {
+          name
+        }
+      }
     }
   }
 `

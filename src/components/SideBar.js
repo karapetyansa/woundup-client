@@ -1,18 +1,18 @@
+import React, { Component, Fragment } from 'react'
 
-  import React, { Component } from 'react'
-  
-  import { NavLink, Tabs, Tab, Text } from 'ui'
-  
-  export class SideBar extends Component {
+import { NavLink, Tabs, Tab, Text } from 'ui'
 
-    render() {
-      return (
+export class SideBar extends Component {
+  render() {
+    return (
+      <div>
         <Tabs
+          style={{position:"sticky", top: 56}}
           flexDirection="column"
           borderRight={1}
           borderBottom={0}
           alignItems="stretch"
-      >
+        >
           <Tab is={NavLink} mx={[0, 2]} to={'/places'}>
             <Text textAlign="left">Места</Text>
           </Tab>
@@ -38,7 +38,7 @@
             <Text textAlign="left">Пользователи</Text>
           </Tab>
         </Tabs>
-      )
-    }
-  }  
-  
+      </div>
+    )
+  }
+}

@@ -99,7 +99,7 @@ class SelectionFieldComponent extends Component {
   )
   renderMenu = children => (
     <DataList>
-      {this.state.options.length === 0 && <Option>Type to search</Option>}
+      {this.state.options.length === 0 && <Option>Введите текст поиска</Option>}
       {children}
     </DataList>
   )
