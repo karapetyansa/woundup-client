@@ -40,7 +40,7 @@ export const SelectAdapter = ({ input, meta, ...rest }) => (
 export const InputAdapter = ({ input, label, meta, placeholder }) => (
   <Fragment>
     <Label>{label}</Label>
-    <Input {...input} type="text" placeholder={placeholder} />
+    <Input {...input} placeholder={placeholder} />
     {meta.error && meta.touched && <span>{meta.error}</span>}
   </Fragment>
 )
@@ -49,13 +49,13 @@ export const required = value => (value ? undefined : 'Required')
 
 export const subscription = { submitting: true, pristine: true }
 
-export const renderInput = (name, label, placeholder) => (
+export const renderInput = (name, label, placeholder, type='text') => (
   <Field
     name={name}
     label={label}
     validate={required}
     component={InputAdapter}
-    type="text"
+    type={type}
     placeholder={placeholder}
   />
 )

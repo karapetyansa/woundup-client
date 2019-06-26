@@ -7,10 +7,11 @@
 
   import { Button, Loader, Flex, Text } from 'ui'
   import { Table as Tbl, Tr, Th, Td, Tbody } from 'ui/Table'
+  import { ActionButton } from 'components/Buttons'
   
   import { DELETE_TIMETABLE, LIST_TIMETABLES } from './queries'
   import { transformListProps, mutateProp } from 'apollo/helpers'
-import { toNumber } from 'utils';
+  import { toNumber } from 'utils';
   
   const renderHeaderCell = (cell, i) => <Th key={i}>{cell}</Th>
   
@@ -31,14 +32,10 @@ import { toNumber } from 'utils';
           <Td>{endTime && new Date(endTime+'z').toLocaleString()}</Td> 
           <Td>{placeId && placeId.label}</Td>
           <Td>
-            <Button is={Link} mx={0} to={'/timetables/' + id}>
-              Редактировать
-            </Button>
+            <ActionButton is={Link} buttonType="edit" mx={0} to={'/timetables/' + id} />
           </Td>
           <Td>
-            <Button mx={0} onClick={this.delete}>
-              Удалить
-            </Button>
+            <ActionButton onClick={this.delete} buttonType="delete" />
           </Td>
         </Tr>
       )
@@ -61,10 +58,8 @@ import { toNumber } from 'utils';
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Обновить с сервера</Button>
-            <Button is={Link} to={this.toCreate}>
-              Создать
-            </Button>
+            <ActionButton buttonType="refetch" onClick={refetch} />
+            <ActionButton buttonType="create" is={Link} to={this.toCreate} />
           </Flex>
           <Tbl>
             <Tbody>

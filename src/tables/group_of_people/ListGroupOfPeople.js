@@ -7,6 +7,7 @@
 
   import { Button, Loader, Flex, Text } from 'ui'
   import { Table as Tbl, Tr, Th, Td, Tbody } from 'ui/Table'
+  import { ActionButton } from 'components/Buttons'
   
   import { DELETE_GROUP_OF_PEOPLE, LIST_GROUP_OF_PEOPLE } from './queries'
   import { transformListProps, mutateProp } from 'apollo/helpers'
@@ -28,14 +29,10 @@
           <Td>{name}</Td>
           <Td>{abbrName}</Td>
           <Td>
-            <Button is={Link} mx={0} to={'/group_of_people/' + id}>
-              Редактировать
-            </Button>
+            <ActionButton is={Link} buttonType="edit" mx={0} to={'/group_of_people/' + id} />
           </Td>
           <Td>
-            <Button mx={0} onClick={this.delete}>
-              Удалить
-            </Button>
+            <ActionButton onClick={this.delete} buttonType="delete" />
           </Td>
         </Tr>
       )
@@ -58,10 +55,8 @@
       return (
         <Fragment>
           <Flex>
-            <Button onClick={refetch}>Обновить с сервера</Button>
-            <Button is={Link} to={this.toCreate}>
-              Создать
-            </Button>
+            <ActionButton buttonType="refetch" onClick={refetch} />
+            <ActionButton buttonType="create" is={Link} to={this.toCreate} />
           </Flex>
           <Tbl>
             <Tbody>
