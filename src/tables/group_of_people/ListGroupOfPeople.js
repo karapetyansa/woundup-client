@@ -28,12 +28,8 @@
           <Td>{id}</Td> 
           <Td>{name}</Td>
           <Td>{abbrName}</Td>
-          <Td>
-            <ActionButton is={Link} buttonType="edit" mx={0} to={'/group_of_people/' + id} />
-          </Td>
-          <Td>
-            <ActionButton onClick={this.delete} buttonType="delete" />
-          </Td>
+          <ActionButton is={Link} buttonType="edit" mx={0} to={'/group_of_people/' + id} />
+          <ActionButton onClick={this.delete} buttonType="delete" />
         </Tr>
       )
     }
@@ -54,7 +50,7 @@
       const { loading, error, mainQuery, refetch, deleteGroupOfPeople } = this.props
       return (
         <Fragment>
-          <Flex>
+          <Flex style={{position: 'sticky', top: 56, backgroundColor: "white"}}>
             <ActionButton buttonType="refetch" onClick={refetch} />
             <ActionButton buttonType="create" is={Link} to={this.toCreate} />
           </Flex>

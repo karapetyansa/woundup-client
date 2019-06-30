@@ -27,12 +27,8 @@
         <Tr> 
           <Td>{id}</Td> 
           <Td>{name}</Td>
-          <Td>
-            <ActionButton is={Link} buttonType="edit" is={Link} mx={0} to={'/places/' + id} />
-          </Td>
-          <Td>
-            <ActionButton onClick={this.delete} buttonType="delete" />
-          </Td>
+          <ActionButton is={Link} buttonType="edit" is={Link} mx={0} to={'/places/' + id} />
+          <ActionButton onClick={this.delete} buttonType="delete" />
         </Tr>
       )
     }
@@ -53,7 +49,7 @@
       const { loading, error, mainQuery, refetch, deletePlace } = this.props
       return (
         <Fragment>
-          <Flex>
+          <Flex style={{position: 'sticky', top: 56, backgroundColor: "white"}}>
             <ActionButton buttonType="refetch" onClick={refetch} />
             <ActionButton buttonType="create" is={Link} to={this.toCreate} />
           </Flex>

@@ -31,12 +31,8 @@
           <Td>{startTime && new Date(startTime+'z').toLocaleString()}</Td> 
           <Td>{endTime && new Date(endTime+'z').toLocaleString()}</Td> 
           <Td>{placeId && placeId.label}</Td>
-          <Td>
-            <ActionButton is={Link} buttonType="edit" mx={0} to={'/timetables/' + id} />
-          </Td>
-          <Td>
-            <ActionButton onClick={this.delete} buttonType="delete" />
-          </Td>
+          <ActionButton is={Link} buttonType="edit" mx={0} to={'/timetables/' + id} />
+          <ActionButton onClick={this.delete} buttonType="delete" />
         </Tr>
       )
     }
@@ -57,7 +53,7 @@
       const { loading, error, mainQuery, refetch, deleteTimetable } = this.props
       return (
         <Fragment>
-          <Flex>
+          <Flex style={{position: 'sticky', top: 56, backgroundColor: "white"}}>
             <ActionButton buttonType="refetch" onClick={refetch} />
             <ActionButton buttonType="create" is={Link} to={this.toCreate} />
           </Flex>

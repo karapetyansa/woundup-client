@@ -26,12 +26,8 @@ class Row extends Component {
       <Tr>
         <Td>{id}</Td>
         <Td>{name}</Td>
-        <Td>
-          <ActionButton is={Link} buttonType="edit" to={'/events/' + id} />
-        </Td>
-        <Td>
-          <ActionButton onClick={this.delete} buttonType="delete" />
-        </Td>
+        <ActionButton is={Link} buttonType="edit" to={'/events/' + id} />
+        <ActionButton onClick={this.delete} buttonType="delete" />
       </Tr>
     )
   }

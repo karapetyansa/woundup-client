@@ -7,14 +7,23 @@ export const Table = ({ children }) => <Box as="table">{children}</Box>
 
 export const Tbody = ({ children }) => <Box as="tbody">{children}</Box>
 
+export const Td = styled(Box)`
+  font-family: sans-serif;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 0px 8px;
+`.withComponent('td')
+
 export const Th = styled(Box)`
   font-family: sans-serif;
   border: 1px solid #dddddd;
   text-align: left;
   padding: 0px 8px;
+  position: sticky;
+  top: 105px;
+  background-color: white;
 `.withComponent('th')
 
-export const Td = Th.withComponent('td')
 
 export const Tr = styled(Box)`
   &:nth-child(even) {

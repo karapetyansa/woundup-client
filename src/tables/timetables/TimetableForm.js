@@ -63,14 +63,14 @@ class TimetableForm extends Component {
               name="startTime"
               label="Начало"
               component={InputAdapter}
-              type="text"
+              type="datetime-local"
               placeholder="Введите время начала"
             />
             <Field
               name="endTime"
               label="Окончание"
               component={InputAdapter}
-              type="text"
+              type="datetime-local"
               placeholder="Введите время окончания"
             />
             <Box>

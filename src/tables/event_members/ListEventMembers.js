@@ -55,7 +55,7 @@
       const { loading, error, mainQuery, refetch, deleteEventMember } = this.props
       return (
         <Fragment>
-          <Flex>
+          <Flex style={{position: 'sticky', top: 56, backgroundColor: "white"}}>
             <ActionButton buttonType="refetch" onClick={refetch} />
             <ActionButton buttonType="create" is={Link} to={this.toCreate} />
           </Flex>
