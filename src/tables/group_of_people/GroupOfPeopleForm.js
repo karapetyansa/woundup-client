@@ -45,17 +45,17 @@ class GroupOfPeopleForm extends Component {
             />
             <Field
               name="name"
-              label="Name"
+              label="Название"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Name"
+              placeholder="Введите название"
             />
             <Field
               name="abbrName"
-              label="Abbr Name"
+              label="Сокращение"
               component={InputAdapter}
               type="text"
-              placeholder="Insert Abbr Name"
+              placeholder="Введите сокращение"
             />
             <Box>
               <Button type="submit" disabled={submitting}>

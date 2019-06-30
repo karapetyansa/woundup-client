@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import omitBy from 'lodash/omitBy'
 import isNil from 'lodash/isNil'
+import InfiniteScroll from 'react-infinite-scroller'
 
 import { Button, Loader, Flex, Text } from 'ui'
 import { Table as Tbl, Tr, Th, Td, Tbody } from 'ui/Table'
@@ -45,18 +46,33 @@ class Table extends Component {
     query: { ...this.props.match.params }
   }
   render() {
-    const { loading, error, mainQuery, refetch, deleteEvent } = this.props
+    const {
+      loading,
+      error,
+      mainQuery,
+      loadMore,
+      refetch,
+      deleteEvent
+    } = this.props
     return (
       <Fragment>
-        <Flex style={{position: 'sticky', top: 56, backgroundColor: "white"}}>
+        <Flex style={{ position: 'sticky', top: 56, backgroundColor: 'white' }}>
           <ActionButton buttonType="refetch" onClick={refetch} />
           <ActionButton buttonType="create" is={Link} to={this.toCreate} />
         </Flex>
         <Tbl>
           <Tbody>
-            <Header headers={['ИД', 'Название']} />
             {!loading && !error && (
-              <Body deleteRow={deleteEvent} data={mainQuery.nodes} />
+              <InfiniteScroll
+                loadMore={loadMore}
+                hasMore={mainQuery.pageInfo.hasNextPage}
+                initialLoad={false}
+                loader={<p key={'00'}>Loading...</p>}
+              >
+                <Header headers={['ИД', 'Название']} />
+
+                <Body deleteRow={deleteEvent} data={mainQuery.nodes} />
+              </InfiniteScroll>
             )}
           </Tbody>
         </Tbl>
@@ -71,7 +87,7 @@ const configObject = {
   options: ({ match = {} }) => {
     return {
       variables: {
-        first: 50
+        first: 25
       }
     }
   },
