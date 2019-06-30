@@ -75,7 +75,6 @@ class SelectionFieldComponent extends Component {
   render() {
     const { options, label } = this.state
     const { id, placeholder } = this.props
-    console.log('SelectionFieldComponent', this.props, this.state)
     return (
       <Autocomplete
         inputProps={{ id: id, name: id, placeholder }}

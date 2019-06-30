@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
@@ -13,7 +12,7 @@ import { READ_ACCOUNT, CREATE_ACCOUNT, UPDATE_ACCOUNT } from './queries'
 class AccountForm extends Component {
   onSubmit = async values => {
     const { account, createAccount, updateAccount, history } = this.props
-    const { nodeId,  ...initialValues } = account || {}
+    const { nodeId, ...initialValues } = account || {}
     const diff = objectDifference(values, initialValues)
     const accountPatch = getPatch(diff)
     try {
@@ -45,7 +44,8 @@ class AccountForm extends Component {
             />
             <Field
               name="personId"
-              fkey='person'
+              fkey="person"
+              table="people"
               label="Имя пользователя"
               component={SelectAdapter}
               type="text"

@@ -15,7 +15,8 @@ const Button = sys(
     py: 2,
     borderRadius: 2,
     border: 0,
-    buttonStyle: 'primary'
+    buttonStyle: 'primary',
+    alignSelf: 'flex-end'
   },
   props => ({
     // fontFamily: 'inherit',

@@ -45,10 +45,20 @@ class EventMemberForm extends Component {
             <Field
               name="eventId"
               fkey='event'
+              table='events'
               label="Событие"
               component={SelectAdapter}
               type="text"
               placeholder="Выберите событие"
+            />
+            <Field
+              name="participant"
+              fkey='group_of_people'
+              table='group_of_people'
+              label="Группа участников"
+              component={SelectAdapter}
+              type="text"
+              placeholder="Выберите группу участников"
             />
             <Field
               name="isModerator"
@@ -56,14 +66,6 @@ class EventMemberForm extends Component {
               component={InputAdapter}
               type="checkbox"
               placeholder="Введите true или false"
-            />
-            <Field
-              name="participant"
-              fkey='group_of_people'
-              label="Группа участников"
-              component={SelectAdapter}
-              type="text"
-              placeholder="Выберите группу участников"
             />
             <Box>
               <Button type="submit" disabled={submitting}>

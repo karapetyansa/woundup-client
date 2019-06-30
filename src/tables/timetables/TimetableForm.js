@@ -46,6 +46,7 @@ class TimetableForm extends Component {
             <Field
               name="eventId"
               fkey='event'
+              table='events'
               label="Событие"
               component={SelectAdapter}
               type="text"
@@ -54,6 +55,7 @@ class TimetableForm extends Component {
             <Field
               name="placeId"
               fkey='place'
+              table='places'
               label="Место проведения"
               component={SelectAdapter}
               type="text"

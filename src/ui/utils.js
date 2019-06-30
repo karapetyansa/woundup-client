@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
 import { Field } from 'react-final-form'
+import { Link } from 'react-router-dom'
 
 import { SelectionField } from 'components'
-import { Input, Label } from 'ui'
+import { Input, Label, Flex } from 'ui'
+import { ActionButton } from 'components/Buttons';
 
 // const small = 32767
 // const normal = 2147483647
@@ -34,7 +36,15 @@ import { Input, Label } from 'ui'
 // }
 
 export const SelectAdapter = ({ input, meta, ...rest }) => (
-  <SelectionField {...input} defaultValue={meta.initial} {...rest} />
+  <Flex flexDirection="row">
+    <SelectionField {...input} defaultValue={meta.initial} {...rest} />
+    <ActionButton
+          is={Link}
+          buttonType="edit"
+          mx={0}
+          to={'/' + rest.table + '/' + input.value.value}
+        />
+  </Flex>
 )
 
 export const InputAdapter = ({ input, label, meta, placeholder }) => (

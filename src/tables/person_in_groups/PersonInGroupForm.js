@@ -46,6 +46,7 @@ class PersonInGroupForm extends Component {
             <Field
               name="personId"
               fkey='person'
+              table='people'
               label="Пользвоатель"
               component={SelectAdapter}
               type="text"
@@ -54,6 +55,7 @@ class PersonInGroupForm extends Component {
             <Field
               name="groupId"
               fkey='group_of_people'
+              table='group_of_people'
               label="Группа пользователей"
               component={SelectAdapter}
               type="text"
