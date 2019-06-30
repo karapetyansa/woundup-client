@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-import { NavLink, Tabs, Tab, Text } from 'ui'
+import { NavLink, Tabs, Tab, Text, Label } from 'ui'
 
 export class SideBar extends Component {
   render() {
@@ -13,6 +13,12 @@ export class SideBar extends Component {
           borderBottom={0}
           alignItems="stretch"
         >
+          <Tab is={NavLink} mx={[0, 2]} to={'/group_of_people'}>
+            <Text textAlign="left">Группы пользователей</Text>
+          </Tab>
+          <Tab is={NavLink} mx={[0, 2]} to={'/people'}>
+            <Text textAlign="left">Пользователи</Text>
+          </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/places'}>
             <Text textAlign="left">Места</Text>
           </Tab>
@@ -25,17 +31,11 @@ export class SideBar extends Component {
           <Tab is={NavLink} mx={[0, 2]} to={'/timetables'}>
             <Text textAlign="left">Расписание</Text>
           </Tab>
-          <Tab is={NavLink} mx={[0, 2]} to={'/group_of_people'}>
-            <Text textAlign="left">Группы пользователей</Text>
-          </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/event_members'}>
             <Text textAlign="left">Участники</Text>
           </Tab>
           <Tab is={NavLink} mx={[0, 2]} to={'/accounts'}>
             <Text textAlign="left">Аккаунты</Text>
-          </Tab>
-          <Tab is={NavLink} mx={[0, 2]} to={'/people'}>
-            <Text textAlign="left">Пользователи</Text>
           </Tab>
         </Tabs>
       </div>
