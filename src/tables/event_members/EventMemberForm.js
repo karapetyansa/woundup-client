@@ -54,7 +54,7 @@ class EventMemberForm extends Component {
               name="isModerator"
               label="Ведущие"
               component={InputAdapter}
-              type="text"
+              type="checkbox"
               placeholder="Введите true или false"
             />
             <Field
