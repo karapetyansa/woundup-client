@@ -5,7 +5,7 @@ import omitBy from 'lodash/omitBy'
 import isNil from 'lodash/isNil'
 import InfiniteScroll from 'react-infinite-scroller'
 
-import { Button, Loader, Flex, Text } from 'ui'
+import { Button, Loader, Flex, Text, SimpleLink } from 'ui'
 import { Table as Tbl, Tr, Th, Td, Tbody } from 'ui/Table'
 import { ActionButton } from 'components/Buttons'
 
@@ -34,8 +34,20 @@ class Row extends Component {
     return (
       <Tr>
         <Td>{isModerator}</Td>
-        <Td>{eventId && eventId.label}</Td>
-        <Td>{participant && participant.label}</Td>
+        <Td>
+          {eventId && (
+            <SimpleLink to={'/events/' + eventId.value}>
+              {eventId.label}
+            </SimpleLink>
+          )}
+        </Td>
+        <Td>
+          {participant && (
+            <SimpleLink to={'/group_of_people/' + participant.value}>
+              {participant.label}
+            </SimpleLink>
+          )}
+        </Td>
         <Td>
           <ActionButton
             is={Link}
@@ -64,7 +76,14 @@ class Table extends Component {
     query: { ...this.props.match.params }
   }
   render() {
-    const { loading, error, mainQuery, refetch, loadMore, deleteEventMember } = this.props
+    const {
+      loading,
+      error,
+      mainQuery,
+      refetch,
+      loadMore,
+      deleteEventMember
+    } = this.props
     return (
       <Fragment>
         <Flex style={{ position: 'sticky', top: 56, backgroundColor: 'white' }}>

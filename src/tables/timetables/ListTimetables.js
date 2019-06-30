@@ -5,7 +5,7 @@ import omitBy from 'lodash/omitBy'
 import isNil from 'lodash/isNil'
 import InfiniteScroll from 'react-infinite-scroller'
 
-import { Button, Loader, Flex, Text } from 'ui'
+import { Button, Loader, Flex, Text, SimpleLink } from 'ui'
 import { Table as Tbl, Tr, Th, Td, Tbody } from 'ui/Table'
 import { ActionButton } from 'components/Buttons'
 
@@ -35,10 +35,22 @@ class Row extends Component {
     return (
       <Tr>
         <Td>{id}</Td>
-        <Td>{eventId && eventId.label}</Td>
+        <Td>
+          {eventId && (
+            <SimpleLink to={'/events/' + eventId.value}>
+              {eventId.label}
+            </SimpleLink>
+          )}
+        </Td>
         <Td>{startTime && new Date(startTime + 'z').toLocaleString()}</Td>
         <Td>{endTime && new Date(endTime + 'z').toLocaleString()}</Td>
-        <Td>{placeId && placeId.label}</Td>
+        <Td>
+          {placeId && (
+            <SimpleLink to={'/places/' + placeId.value}>
+              {placeId.label}
+            </SimpleLink>
+          )}
+        </Td>
         <ActionButton
           is={Link}
           buttonType="edit"
@@ -63,7 +75,14 @@ class Table extends Component {
     query: { ...this.props.match.params }
   }
   render() {
-    const { loading, error, mainQuery, refetch, loadMore, deleteTimetable } = this.props
+    const {
+      loading,
+      error,
+      mainQuery,
+      refetch,
+      loadMore,
+      deleteTimetable
+    } = this.props
     return (
       <Fragment>
         <Flex style={{ position: 'sticky', top: 56, backgroundColor: 'white' }}>

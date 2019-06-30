@@ -5,7 +5,7 @@ import omitBy from 'lodash/omitBy'
 import isNil from 'lodash/isNil'
 import InfiniteScroll from 'react-infinite-scroller'
 
-import { Button, Loader, Flex, Text } from 'ui'
+import { Button, Loader, Flex, Text, SimpleLink } from 'ui'
 import { Table as Tbl, Tr, Th, Td, Tbody } from 'ui/Table'
 import { ActionButton } from 'components/Buttons'
 
@@ -26,8 +26,20 @@ class Row extends Component {
     const { nodeId, personId, person, groupId, groupOfPeople } = this.props
     return (
       <Tr>
-        <Td>{personId && personId.label}</Td>
-        <Td>{groupId && groupId.label}</Td>
+        <Td>
+          {personId && (
+            <SimpleLink to={'/people/' + personId.value}>
+              {personId.label}
+            </SimpleLink>
+          )}
+        </Td>
+        <Td>
+          {groupId && (
+            <SimpleLink to={'/group_of_people/' + groupId.value}>
+              {groupId.label}
+            </SimpleLink>
+          )}
+        </Td>
         <ActionButton
           is={Link}
           buttonType="edit"

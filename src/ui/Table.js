@@ -9,9 +9,11 @@ export const Tbody = ({ children }) => <Box as="tbody">{children}</Box>
 
 export const Td = styled(Box)`
   font-family: sans-serif;
-  border: 1px solid #dddddd;
+  /* border: 1px solid #dddddd; */
   text-align: left;
   padding: 0px 8px;
+  color: black;
+  text-decoration: none;
 `.withComponent('td')
 
 export const Th = styled(Box)`

@@ -52,10 +52,10 @@ class GroupOfPeopleForm extends Component {
             />
             <Field
               name="abbrName"
-              label="Сокращение"
+              label="Номер"
               component={InputAdapter}
               type="text"
-              placeholder="Введите сокращение"
+              placeholder="Введите Номер"
             />
             <Box>
               <Button type="submit" disabled={submitting}>
