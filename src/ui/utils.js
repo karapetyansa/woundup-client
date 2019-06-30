@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { SelectionField } from 'components'
 import { Input, Label, Flex } from 'ui'
-import { ActionButton } from 'components/Buttons';
+import { ActionButton } from 'components/Buttons'
 
 // const small = 32767
 // const normal = 2147483647
@@ -39,11 +39,16 @@ export const SelectAdapter = ({ input, meta, ...rest }) => (
   <Flex flexDirection="row">
     <SelectionField {...input} defaultValue={meta.initial} {...rest} />
     <ActionButton
-          is={Link}
-          buttonType="edit"
-          mx={0}
-          to={'/' + rest.table + '/' + input.value.value}
-        />
+      is={Link}
+      buttonType="edit"
+      mx={0}
+      to={
+        '/' +
+        rest.table +
+        '/' +
+        (input.value.value ? input.value.value : 'create')
+      }
+    />
   </Flex>
 )
 
@@ -59,7 +64,7 @@ export const required = value => (value ? undefined : 'Required')
 
 export const subscription = { submitting: true, pristine: true }
 
-export const renderInput = (name, label, placeholder, type='text') => (
+export const renderInput = (name, label, placeholder, type = 'text') => (
   <Field
     name={name}
     label={label}

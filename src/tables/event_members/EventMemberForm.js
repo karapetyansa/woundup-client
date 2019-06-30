@@ -95,7 +95,7 @@ const config = {
     }
   }) => ({
     variables: { id, isList: false },
-    fetchPolicy: 'cache-and-network'
+    fetchPolicy: 'network-only'
   }),
   props
 }

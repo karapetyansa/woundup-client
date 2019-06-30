@@ -85,7 +85,7 @@ const config = {
     }
   }) => ({
     variables: { id: toNumber(id), isList: false },
-    fetchPolicy: 'cache-and-network'
+    fetchPolicy: 'network-only'
   }),
   props
 }
